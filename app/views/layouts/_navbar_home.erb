@@ -22,11 +22,7 @@
           <a href="#about" class="about">About</a>
         </li>
         <li>
-              <% if signed_in? %>
-              <%= link_to "Sign out",signout_path,method: 'delete' %>
-          <% else %>
-              <%= link_to "Sign up",signup_path %>
-          <% end %>
+          <%= link_to "Sign up",signup_path %>
         </li>
         <li>
           <%= link_to "Help",help_path %>
