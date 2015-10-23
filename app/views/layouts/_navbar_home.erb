@@ -23,9 +23,12 @@
         </li>
         <li>
           <% if signed_in? %>
-              <%= link_to "Sign out",signout_path,method: 'delete                                                                                                                                                                                                                               '%>
+              <%= link_to "Sign out",signout_path,method: 'delete'%>
           <% else %>
               <%= link_to "Sign up",signup_path %>
+              </li>
+              <li>
+              <%= link_to "Sign in",signin_path,style: "color: black;" %>
           <% end %>
         </li>
         <li>
