@@ -1,0 +1,16 @@
+<body class="home-page" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <div class="brand">Business Pie</div>
+        <div class="address-bar">Politechnichna st | Kiev</div>
+
+        <%= render 'layouts/navbar_home' %>
+
+            <div class="container">
+              <ul>
+                <%= @reviews.each do |review| %>
+                <li> <%= review.text %> </li>
+                <%end %>
+              </ul>
+            </div>
+        </div>
+    </div>
+</body>

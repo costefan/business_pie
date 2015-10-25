@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   resources :users
-  resources :sessions,only: [:new,:create,:destroy]
+  resources :sessions,only: [:new, :create, :destroy]
+  resources :reviews,only: [:index, :create, :destroy]
 
   root 'static_pages#home'
 
-  match '/help',to: 'static_pages#help',via: 'get'
+  # match '/help',to: 'static_pages#help',via: 'get'
   match '/signup',to: 'users#new',via: 'get'
   match '/signin',to: 'sessions#new',via: 'get'
   match '/signout',to: 'sessions#destroy',via: 'delete'
+  match '/latest',to: 'reviews#latest',via: 'get'
 
   match '/404' ,to: 'errors#error404',via: [:get,:post,:delete,:patch]
   # The priority is based upon order of creation: first created -> highest priority.

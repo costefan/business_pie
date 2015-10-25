@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       user.destroy
       flash[:success] = "User deleted"
     end
-    redirect_to users_path
+    redirect_to users_url
   end
 
   private
