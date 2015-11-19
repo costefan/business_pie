@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :user_check,only: [:new,:create]
+  before_action :check_user,only: [:new,:create]
   def new
   end
 
@@ -8,7 +8,11 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:sessions][:password])
       sign_in user
       flash[:success] = "Ok"
-      redirect_back_or user
+      if current_user.admin?
+        redirect_to admin_path
+      else
+        redirect_back_or user
+      end
     else
       flash.now[:error] = "Invalid email/password pair"
       render 'new'
@@ -20,9 +24,4 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
-  private
-
-  def user_check
-    redirect_to current_user unless current_user.nil?
-  end
 end

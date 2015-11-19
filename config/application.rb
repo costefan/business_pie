@@ -33,5 +33,6 @@ module BusinessPie
     config.active_record.raise_in_transactional_callbacks = true
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     require Rails.root.join("lib/custom_public_exceptions")
+    config.exceptions_app = CustomPublicExceptions.new(Rails.public_path)
   end
 end

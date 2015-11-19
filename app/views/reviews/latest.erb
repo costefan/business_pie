@@ -3,14 +3,20 @@
         <div class="address-bar">Politechnichna st | Kiev</div>
 
         <%= render 'layouts/navbar_home' %>
+            <%= @reviews.each do |review| %>
 
-            <div class="container">
-              <ul>
-                <%= @reviews.each do |review| %>
-                <li> <%= review.text %> </li>
-                <%end %>
-              </ul>
-            </div>
+                <div class="row">
+                  <div class="container">
+                      <div class="box">
+                          <hr>
+                          <h2 class="intro-text text-center">  <%= review.user.name %>
+                          </h2>
+                          <hr>
+                          <%= review.text %>
+                      </div>
+                  </div>
+                </div>
+            <% end %>
         </div>
     </div>
 </body>

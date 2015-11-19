@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+  get 'dashboard/index'
+  end
+
   resources :users
   resources :sessions,only: [:new, :create, :destroy]
   resources :reviews,only: [:index, :create, :destroy]
@@ -8,10 +12,22 @@ Rails.application.routes.draw do
   # match '/help',to: 'static_pages#help',via: 'get'
   match '/signup',to: 'users#new',via: 'get'
   match '/signin',to: 'sessions#new',via: 'get'
+  match '/settings', to: 'users#settings',via: 'get'
   match '/signout',to: 'sessions#destroy',via: 'delete'
   match '/latest',to: 'reviews#latest',via: 'get'
 
+  match '/foursquare',to: 'foursquare_statistics#information',via: 'get'
+  match '/instagram',to: 'instagram_statistics#information',via: 'get'
+  match '/twitter',to: 'twitter_statistics#information',via: 'get'
+
   match '/404' ,to: 'errors#error404',via: [:get,:post,:delete,:patch]
+
+  namespace :admin do
+    get '', to: 'dashboard#index', as: '/'
+    match '/clients', to: 'dashboard#clients', via: 'get'
+    match '/tools', to: 'dashboard#tools', via: 'get'
+    match '/tools', to: 'dashboard#create_tool', via: 'post'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

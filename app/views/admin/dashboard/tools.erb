@@ -1,0 +1,54 @@
+<div id="wrapper">
+
+  <%= render 'layouts/admin_navbar' %>
+
+  <div id="page-wrapper" style="height: 100vh;">
+
+    <div class="container-fluid ">
+
+      <!-- Page Heading -->
+      <div class="row">
+        <div class="col-md-6 col-md-offset-1">
+          <%= form_for :tool_help,url: {controller: :dashboard, action: :create_tool},method: 'post' do |f| %>
+              <div class="form-group">
+                <%= f.label :title %>
+                <%= f.text_field :title,class: "form-control",placeholder: "Title" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :text %>
+                <%= f.text_field :text,class: "form-control",placeholder: "Text" %>
+              </div>
+              <div class="form-group">
+                <%= f.submit "Save",class: "btn btn-primary" %>
+              </div>
+          <% end %>
+        </div>
+
+        <div class="col-md-4 col-md-offset-1">
+          <h3>Wish tools</h3>
+          <%= will_paginate @tools %>
+          <ul>
+            <% @tools.each do |t| %>
+            <li>
+              <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <%= t.title %>
+                    <%= link_to  "Change", edit_tool_path, :class => "btn btn-default",style:"margin-left: 30%;" do %>
+                        <span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>Change
+                    <% end %>
+                  </div>
+                  <div class="panel-body">
+                    <p><%= t.text %></p>
+                  </div>
+              </div>
+            </li> <br />
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

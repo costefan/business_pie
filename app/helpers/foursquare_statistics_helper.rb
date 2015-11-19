@@ -1,0 +1,2 @@
+module FoursquareStatisticsHelper
+end

@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user,only: [:edit,:update,:destroy]
-  before_action :correct_user,only: [:edit,:update]
-  before_action :admin_user,only: :destroy
-  before_action :user_check,only: [:new, :create]
+  before_action :signed_in_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :admin_user, only: :destroy
+  before_action :check_user, only: [:new, :create]
+
   def new
     @user = User.new
   end
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page],per_page: 2)
+    @users = User.paginate(page: params[:page], per_page: 2)
   end
 
   def create
@@ -65,9 +66,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def user_check
-    redirect_to current_user unless current_user.nil?
-  end
 
   def user_params
     params.require(:user).permit(:name,:email,:password,:password_confirmation)
