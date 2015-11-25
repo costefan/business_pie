@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   before_action :signed_in_user, only: [:edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
-  before_action :check_user, only: [:new, :create]
-
+  skip_before_action :check_user
   def new
     @user = User.new
   end
@@ -39,6 +38,11 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+  def settings
+    @tools = Tool.all.except(current_user.tools)
+  end
+
 
   def destroy
     user = User.find(params[:id])

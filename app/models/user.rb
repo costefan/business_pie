@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   has_many :reviews,foreign_key: 'user_id',dependent: :destroy
 
+  has_and_belongs_to_many :tools
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end

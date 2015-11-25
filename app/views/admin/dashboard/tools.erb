@@ -9,36 +9,50 @@
       <!-- Page Heading -->
       <div class="row">
         <div class="col-md-6 col-md-offset-1">
-          <%= form_for :tool_help,url: {controller: :dashboard, action: :create_tool},method: 'post' do |f| %>
-              <div class="form-group">
-                <%= f.label :title %>
-                <%= f.text_field :title,class: "form-control",placeholder: "Title" %>
-              </div>
-              <div class="form-group">
-                <%= f.label :text %>
-                <%= f.text_field :text,class: "form-control",placeholder: "Text" %>
-              </div>
-              <div class="form-group">
-                <%= f.submit "Save",class: "btn btn-primary" %>
-              </div>
-          <% end %>
+
+          <div class="row">
+            <h1> already exist tools </h1>
+            <ul>
+              <% @exist_tools.each do |e| %>
+              <li><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <strong> <%= e.name %> </strong> </li>  <br />
+              <% end %>
+            </ul>
+          </div>
+
+          <div class="row">
+            <h3>Add wish tool</h3>
+              <%= form_for :tool_help,url: {controller: :dashboard, action: :create_tool},method: 'post' do |f| %>
+                  <div class="form-group">
+                    <%= f.label :name %>
+                    <%= f.text_field :name,class: "form-control",placeholder: "Name" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :description %>
+                    <%= f.text_field :description,class: "form-control",placeholder: "Description" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.submit "Save",class: "btn btn-primary" %>
+                  </div>
+              <% end %>
+          </div>
+
         </div>
 
         <div class="col-md-4 col-md-offset-1">
           <h3>Wish tools</h3>
-          <%= will_paginate @tools %>
+          <%= will_paginate @wish_tools %>
           <ul>
-            <% @tools.each do |t| %>
+            <% @wish_tools.each do |t| %>
             <li>
               <div class="panel panel-info">
                   <div class="panel-heading">
-                    <%= t.title %>
-                    <%= link_to  "Change", edit_tool_path, :class => "btn btn-default",style:"margin-left: 30%;" do %>
+                    <%= t.name %>
+                    <%= link_to  "Change", controller: :dashboard, action: :edit_tool, :class => "btn btn-default",style:"margin-left: 30%;" do %>
                         <span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>Change
                     <% end %>
                   </div>
                   <div class="panel-body">
-                    <p><%= t.text %></p>
+                    <p><%= t.description %></p>
                   </div>
               </div>
             </li> <br />

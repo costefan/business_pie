@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   match '/404' ,to: 'errors#error404',via: [:get,:post,:delete,:patch]
 
+  match '/add', to: 'tools#add', via: 'post'
   namespace :admin do
     get '', to: 'dashboard#index', as: '/'
     match '/clients', to: 'dashboard#clients', via: 'get'

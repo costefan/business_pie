@@ -8,7 +8,8 @@ class Admin::DashboardController < ApplicationController
   end
 
   def tools
-    @tools = HelpText.paginate(page: params[:page], per_page: 2)
+    @exist_tools = Tool.all
+    @wish_tools = HelpText.paginate(page: params[:page], per_page: 2)
     @tool_help = HelpText.new
   end
 
@@ -27,7 +28,7 @@ class Admin::DashboardController < ApplicationController
   private
 
   def tool_params
-    params.require(:tool_help).permit(:title, :text)
+    params.require(:tool_help).permit(:name, :description)
   end
 
   def admin_check
