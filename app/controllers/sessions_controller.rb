@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:sessions][:email].downcase)
     if user && user.authenticate(params[:sessions][:password])
       sign_in user
-      flash[:success] = "Ok"
       if current_user.admin?
         redirect_to admin_path
       else

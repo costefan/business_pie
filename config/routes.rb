@@ -6,21 +6,24 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions,only: [:new, :create, :destroy]
   resources :reviews,only: [:index, :create, :destroy]
+  match '/reviews/latest', to: 'reviews#latest',via: 'get'
+
 
   root 'static_pages#home'
 
+
+  match '/feed', to: 'reviews#feed',via: 'get', :defaults => { :format => 'rss' }
   # match '/help',to: 'static_pages#help',via: 'get'
-  match '/signup',to: 'users#new',via: 'get'
-  match '/signin',to: 'sessions#new',via: 'get'
+  match '/signup', to: 'users#new',via: 'get'
+  match '/signin', to: 'sessions#new',via: 'get'
   match '/settings', to: 'users#settings',via: 'get'
-  match '/signout',to: 'sessions#destroy',via: 'delete'
-  match '/latest',to: 'reviews#latest',via: 'get'
+  match '/signout', to: 'sessions#destroy',via: 'delete'
 
-  match '/foursquare',to: 'foursquare_statistics#information',via: 'get'
-  match '/instagram',to: 'instagram_statistics#information',via: 'get'
-  match '/twitter',to: 'twitter_statistics#information',via: 'get'
+  match '/foursquare', to: 'foursquare_statistics#information',via: 'get'
+  match '/instagram', to: 'instagram_statistics#information',via: 'get'
+  match '/twitter', to: 'twitter_statistics#information',via: 'get'
 
-  match '/404' ,to: 'errors#error404',via: [:get,:post,:delete,:patch]
+  match '/404' , to: 'errors#error404',via: [:get,:post,:delete,:patch]
 
   match '/add', to: 'tools#add', via: 'post'
   namespace :admin do

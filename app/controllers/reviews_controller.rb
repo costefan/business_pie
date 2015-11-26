@@ -9,6 +9,14 @@ class ReviewsController < ApplicationController
     @reviews = current_user.reviews.paginate(page: params[:page],per_page: 2)
   end
 
+  def feed
+    @all_reviews = Review.all
+
+    respond_to do |format|
+      format.rss { render :layout => false }
+    end
+  end
+
   def destroy
     current_user.reviews.destroy(params[:id])
     redirect_to reviews_url
