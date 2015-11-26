@@ -3,9 +3,10 @@ class User < ActiveRecord::Base
   validates :name,presence: true,length: {maximum: 50}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email,presence: true,format: {with: VALID_EMAIL_REGEX},uniqueness: {case_sensitive: true}
-  before_create :create_remember_token
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  before_create :create_remember_token
+  validates :password_digest ,presence: true
+  validates :password, presence: true, length: {minimum: 6}
   has_many :reviews,foreign_key: 'user_id',dependent: :destroy
 
   has_and_belongs_to_many :tools
