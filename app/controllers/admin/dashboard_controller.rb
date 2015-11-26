@@ -11,6 +11,10 @@ class Admin::DashboardController < ApplicationController
     @exist_tools = Tool.all
     @wish_tools = HelpText.paginate(page: params[:page], per_page: 2)
     @tool_help = HelpText.new
+    respond_to do |format|
+      format.html
+      format.xml { render xml: @exist_tools }
+    end
   end
 
   def create_tool
