@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def settings
-    @tools = Tool.all.except(current_user.tools)
+    @tools = Tool.all - current_user.tools
   end
 
 

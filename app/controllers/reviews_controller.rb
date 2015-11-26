@@ -1,8 +1,12 @@
 class ReviewsController < ApplicationController
   skip_before_action :check_user, only: :latest
+
   def create
-    current_user.reviews.create(review_params)
-    redirect_to reviews_url
+    @review = current_user.reviews.create(review_params)
+    respond_to do |format|
+      format.html {redirect_to reviews_url}
+      format.js
+    end
   end
 
   def index
