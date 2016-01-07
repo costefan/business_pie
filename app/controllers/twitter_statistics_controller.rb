@@ -5,7 +5,7 @@ class TwitterStatisticsController < ApplicationController
   end
   private
   def check_tool
-    unless current_user.tools.find_by(name: "twitter")
+    unless current_user.tools.find_by(name: "twitter.rb")
       redirect_to current_user
       flash[:notice] = "You don`t have access to this tool, please check your settings"
     end

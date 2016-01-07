@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+@font-face
+{
+  font-family: Cabana; /* Имя шрифта */
+  src: font-url('Cabana-Regular.otf'); /* Путь к файлу со шрифтом */
+}

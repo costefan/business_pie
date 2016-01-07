@@ -1,6 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
-require "rails"
+require 'rails/all'
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
@@ -32,6 +32,7 @@ module BusinessPie
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     require Rails.root.join("lib/custom_public_exceptions")
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end

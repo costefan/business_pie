@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   match '/foursquare', to: 'foursquare_statistics#information',via: 'get'
   match '/instagram', to: 'instagram_statistics#information',via: 'get'
+  match '/search_instagram', to: 'instagram_statistics#search',via: 'post'
   match '/twitter', to: 'twitter_statistics#information',via: 'get'
 
   match '/404' , to: 'errors#error404',via: [:get,:post,:delete,:patch]
@@ -32,6 +33,8 @@ Rails.application.routes.draw do
     match '/tools', to: 'dashboard#tools', via: 'get'
     match '/tools', to: 'dashboard#create_tool', via: 'post'
   end
+
+  match '/request/save',to: 'instagram_statistics#save_request',via: 'post'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

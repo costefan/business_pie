@@ -9,8 +9,8 @@ xml.rss :version => "2.0" do
         case t.name
           when 'instagram'
             link = 'http://localhost:3000/instagram'
-          when 'twitter'
-            link = 'http://localhost:3000/twitter'
+          when 'twitter.rb'
+            link = 'http://localhost:3000/twitter.rb'
           when 'fourquare'
             link = 'http://localhost:3000/foursquare'
         end
