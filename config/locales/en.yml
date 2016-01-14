@@ -20,4 +20,69 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  home_page:
+    navbar:
+      home: 'Home'
+      about: 'About'
+      dashboard: 'Dashboard'
+      sign_in: 'Sign in'
+      sign_out: 'Sign out'
+      sign_up: 'Sign up'
+      reviews: 'Reviews'
+    email_label: 'Email'
+    password_label: 'Password'
+    submit: 'Sign in'
+  menu:
+    dashboard: 'Dashboard'
+    instagram: 'Instagram'
+    twitter: 'Twitter'
+    foursquare: 'Foursquare'
+    my_reviews: 'My reviews'
+    users: 'Users'
+    admin: 'Admin panel'
+  menu_admin:
+    admin: 'Admin panel'
+    dashboard: 'Dashboard'
+    clients: 'Manage clients'
+    tools: 'Manage tools'
+  upper_menu:
+    profile: 'Profile'
+    tasks: 'My tasks'
+    settings: 'Settings'
+    log_out: 'Log out'
+  dashboard:
+    header: 'User panel'
+    text: 'Like our service? Check it on the ....'
+    details: 'View Details'
+    chart: 'Chart'
+  instagram:
+    form:
+      location: 'location'
+      hashtag: 'Hashtag'
+      submit: 'Submit'
+  twitter:
+    form:
+      name: 'Name'
+      submit: 'Submit'
+  reviews:
+    text: 'Text'
+    submit: 'Create'
+  admin_panel:
+    header: 'Administration panel'
+  tools:
+    header: 'Already exist tools'
+    form:
+      header: 'Add wish tool'
+      name: 'Name'
+      description: 'Description'
+      save: 'Save'
+    wish_tools: 'Wish tools'
+    change: 'Change'
+  languages:
+    lang: "Language"
+    ru: "Russian"
+    en: "English"
+  description:
+    instagram: "Here you can check all media by hashtag in location that you choose on map"
+    twitter: "Here you can check all media by some name and location that you choose on map"
+    tasks: "Here you can add task to check your media every day and see it on your dashboard"

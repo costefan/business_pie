@@ -15,5 +15,7 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require turbolinks
+//= require spin.min
+//= require ladda.min
 //= require_tree .
 

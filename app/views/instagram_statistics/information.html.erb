@@ -1,9 +1,6 @@
 <div id="wrapper">
 
   <%= render 'layouts/navbar' %>
-  <script type="text/javascript"
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpLLrfm9YHS776bKpJ7e5stO2VselPFpU">
-  </script>
   <div id="page-wrapper" style="height: 100vh;">
 
     <div class="container-fluid">
@@ -12,6 +9,7 @@
       <div class="row">
         <div class="container">
           <h1>Instagram overview</h1> <br />
+          <h4><%= t('description.instagram') %></h4>
           <div class="col-md-9 main-block" style="background-color: #D3D3D3;">
             <div class="row">
               <div class="col-md-7">
@@ -19,7 +17,7 @@
                   <div class="embed-responsive-item"id="map" ></div>
                 </div>
               </div>
-              <div class="col-md-4 col-md-offset-1">
+              <div class="col-md-4 col-md-offset-1 form-block">
                 <%= form_tag( search_instagram_url, remote: true, role:"form") do  %>
                     <div class="form-group">
                       <%= label_tag "Current location" %>
@@ -27,10 +25,13 @@
                     </div>
                     <div class="form-group">
                       <%= label_tag :hashtag %>
-                      <%= text_field_tag :hashtag,"", class: "form-control", placeholder: "Hashtags" %>
+                      <%= text_field_tag :hashtag,"", class: "form-control", placeholder: "Hashtags", required: true %>
                     </div>
                     <div class="form-group">
-                      <%= submit_tag "Check", class: 'btn btn-sm',style: 'background-color: #222222;' %>
+                      <button type="submit" class="btn ladda-button" data-style="zoom-out" name="submit">
+                        <span class="ladda-label">Submit</span>
+                        <span class="ladda-spinner"></span>
+                      </button>
                     </div>
                 <% end %>
               </div>
@@ -40,7 +41,6 @@
           <div id="myModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
-
               </div>
             </div>
           </div>

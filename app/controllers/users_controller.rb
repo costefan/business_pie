@@ -9,6 +9,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    request = current_user.requests.where(from: 'twitter')
+    @url = Request.find(request.id)
   end
 
   def index
@@ -51,6 +53,22 @@ class UsersController < ApplicationController
       flash[:success] = "User deleted"
     end
     redirect_to users_url
+  end
+
+  def tasks
+    if request.post?
+      ProcessWorker.perform_async params[:lat], params[:lng], params[:name]
+    else
+
+    end
+  end
+
+
+  def change_locale
+    l = params[:locale].to_s.strip.to_sym
+    l = I18n.default_locale unless I18n.available_locales.include?(l)
+    cookies.permanent[:educator_locale] = l
+    redirect_to request.referer || root_url
   end
 
   private

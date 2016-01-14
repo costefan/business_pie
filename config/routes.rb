@@ -1,9 +1,16 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   namespace :admin do
   get 'dashboard/index'
   end
 
-  resources :users
+  resources :users do
+    member do
+      get :tasks
+      post :tasks
+    end
+  end
+
   resources :sessions,only: [:new, :create, :destroy]
   resources :reviews,only: [:index, :create, :destroy]
   match '/reviews/latest', to: 'reviews#latest',via: 'get'
@@ -23,6 +30,7 @@ Rails.application.routes.draw do
   match '/instagram', to: 'instagram_statistics#information',via: 'get'
   match '/search_instagram', to: 'instagram_statistics#search',via: 'post'
   match '/twitter', to: 'twitter_statistics#information',via: 'get'
+  match '/search_twitter', to: 'twitter_statistics#search', via: 'post'
 
   match '/404' , to: 'errors#error404',via: [:get,:post,:delete,:patch]
 
@@ -33,6 +41,10 @@ Rails.application.routes.draw do
     match '/tools', to: 'dashboard#tools', via: 'get'
     match '/tools', to: 'dashboard#create_tool', via: 'post'
   end
+
+    mount Sidekiq::Web => '/sidekiq'
+
+  get '/change_locale/:locale', to: 'users#change_locale', as: :change_locale
 
   match '/request/save',to: 'instagram_statistics#save_request',via: 'post'
   # The priority is based upon order of creation: first created -> highest priority.

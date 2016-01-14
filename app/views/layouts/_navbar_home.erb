@@ -16,26 +16,26 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li>
-          <%= link_to "Home",root_path %>
+          <%= link_to t('home_page.navbar.dashboard'), root_path %>
         </li>
         <li>
-          <a href="#about" class="about">About</a>
+          <a href="#about" class="about"><%= t('home_page.navbar.home') %></a>
         </li>
         <li>
           <% if signed_in? %>
-              <%= link_to "Dashboard",user_path(current_user) %>
+              <%= link_to t('home_page.navbar.dashboard'), user_path(current_user) %>
               </li>
               <li>
-              <%= link_to "Sign out",signout_path,method: 'delete'%>
+              <%= link_to t('home_page.navbar.sign_out') ,signout_path,method: 'delete'%>
           <% else %>
-              <%= link_to "Sign up",signup_path %>
+              <%= link_to t('home_page.navbar.sign_up') ,signup_path %>
               </li>
               <li>
-              <%= link_to "Sign in", "#", class:'sign-in-btn', data: {toggle: "modal", backdrop: 'static', target: ".bs-example-modal-sm"}, style: "color: black;" %>
+              <%= link_to t('home_page.navbar.sign_in'), "#", class:'sign-in-btn', data: {toggle: "modal", backdrop: 'static', target: ".bs-example-modal-sm"}, style: "color: black;" %>
           <% end %>
         </li>
         <li>
-          <%= link_to "Reviews", reviews_latest_path %>
+          <%= link_to t('home_page.navbar.reviews'), reviews_latest_path %>
         </li>
       </ul>
     </div>
@@ -55,14 +55,14 @@
                   <%= render 'layouts/flash' %>
                 <div class="form-group">
                   <%= f.label :email %>
-                  <%= f.text_field :email,class: "form-control",placeholder: "Email" %>
+                  <%= f.text_field :email,class: "form-control",placeholder: t('home_page.email_label') %>
                 </div>
                 <div class="form-group">
                   <%= f.label :password %>
-                  <%= f.password_field :password,class: "form-control",placeholder: "Password" %>
+                  <%= f.password_field :password,class: "form-control",placeholder: t('home_page.password_label') %>
                 </div>
                 <div class="form-group">
-                  <%= f.submit "Sign in",class: "btn btn-primary" %>
+                  <%= f.submit t('home_page.submit') ,class: "btn btn-primary" %>
                 </div>
             <% end %>
             </div>

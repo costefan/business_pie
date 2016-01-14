@@ -1,0 +1,11 @@
+$('.picture-block').remove();
+$('.modal-content').append("<div class='picture-block'> </div>");
+<% if @media.any? %>
+  <% @media.each do |m| %>
+    $('.picture-block').append('<%=  m.user.name %> <strong> Posted </strong> => ');
+    $('.picture-block').append('<%=  m.text.split %> <br />');
+  <% end %>
+<% else %>
+$('.picture-block').append('Sorry, there is no recent media');
+<% end %>
+$('#myModal').modal({show: true});

@@ -16,17 +16,17 @@
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= current_user.name  %> <b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li>
-          <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+          <%= link_to t('upper_menu.profile'), edit_user_path(current_user) %>
         </li>
         <li>
-          <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+          <%= link_to t('upper_menu.tasks'), tasks_user_path(current_user) %>
         </li>
         <li>
-          <%= link_to "Settings",edit_user_path(current_user) %>
+          <%= link_to t('upper_menu.settings'), settings_path %>
         </li>
         <li class="divider"></li>
         <li>
-          <%= link_to "Log out",signout_path,method: 'delete' %>
+          <%= link_to t('upper_menu.log_out'), signout_path, method: 'delete' %>
         </li>
       </ul>
     </li>
@@ -35,16 +35,16 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
       <li class="active">
-        <%= link_to "Dashboard","#" %>
+        <%= link_to t('menu_admin.admin'), admin_path %>
       </li>
       <li>
-        <%= link_to "Manage clients", admin_clients_path %>
+        <%= link_to t('menu_admin.clients'), admin_clients_path %>
       </li>
       <li>
-        <%= link_to "Manage tools", admin_tools_path %>
+        <%= link_to t('menu_admin.tools'), admin_tools_path %>
       </li>
       <li>
-        <%= link_to "Dashboard", user_path(current_user) %>
+        <%= link_to t('menu.dashboard'), user_path(current_user) %>
       </li>
     </ul>
   </div>

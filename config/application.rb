@@ -26,14 +26,17 @@ module BusinessPie
     # config.time_zone = 'Central Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.default_locale = :en
+
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-    require Rails.root.join("lib/custom_public_exceptions")
-    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
+    require Rails.root.join("lib/custom_public_exceptions")
+    config.exceptions_app = CustomPublicExceptions.new(Rails.public_path)
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    config.sass.load_paths << Rails.root.join('vendor', 'assets', 'stylesheets')
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end

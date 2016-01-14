@@ -7,6 +7,7 @@
     <div class="container-fluid row">
 
       <div class="col-md-4 col-md-offset-1" style="border-right: 1px solid black;">
+
         <button class=" btn btn-info btn-large btoggle ">SELECT TOOLS</button>
         <div class="tables-toggle" style="display:none;">
           <%= form_tag(add_url) do  %>
@@ -24,6 +25,23 @@
           <% end %>
         </div>
       </div>
+      <div class="col-md-4 col-md-offset-1">
+        <p> <%= t('languages.lang') %> </p>
+        <div class="btn-group-vertical">
+          <%= link_to t('languages.en'), change_locale_path(:en), class:'btn btn-primary' %>
+          <%= link_to t('languages.ru'), change_locale_path(:ru), class:'btn btn-primary' %>
+        </div>
+      </div>
     </div>
+    <script>
+
+      // Place all the behaviors and hooks related to the matching controller here.
+      // All this logic will automatically be available in application.js.
+      $(document).ready(function () {
+        $('.btoggle').click(function () {
+          $('.tables-toggle').toggle('slow');
+        });
+      });
+    </script>
   </div>
 </div>

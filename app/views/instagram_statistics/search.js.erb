@@ -1,13 +1,15 @@
 $('.picture-block').remove();
-$('.modal-content').append("<div class='picture-block'> </div>");
+$('button[type=button]').remove();
+$('.modal-content').append("<div class='row'><div class='picture-block col-md-6 col-md-offset-3'>  </div></div>");
 <% if @insta.any? %>
   <% @insta.each do |media|  %>
     $('.picture-block').append('<%= image_tag media.images.low_resolution.url %>');
     $('.picture-block').append('<%= media.caption.text.split %>');
   <% end %>
   setTimeout(function(){
-    $('.picture-block').prepend('<%= link_to 'Save','#',class: 'btn btn-primary',remote:true %>');
+    /*$('.picture-block').prepend('<%#= render 'layouts/save_request' %>');*/
   }, 2000);
+    $('.form-block').append('<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"> Last results </button>');
 <% else %>
   $('.picture-block').append('<p><strong> Sorry,there was no media by your location last time </strong></p>');
 <% end %>

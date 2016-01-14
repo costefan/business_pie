@@ -1,0 +1,88 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ru:
+  home_page:
+    navbar:
+      home: 'Домой'
+      about: 'Про нас'
+      dashboard: 'Доска'
+      sign_in: 'Войти'
+      sign_out: 'Выйти'
+      sign_up: 'Регистрация'
+      reviews: 'Отзывы'
+    email_label: 'Меил'
+    password_label: 'Пароль'
+    submit: 'Вход'
+  menu:
+    dashboard: 'Доска'
+    instagram: 'Instagram'
+    twitter: 'Twitter'
+    foursquare: 'Foursquare'
+    my_reviews: 'Мои отзывы'
+    users: 'Пользователи'
+    admin: 'Админ панель'
+  menu_admin:
+    admin: 'Админ панель'
+    dashboard: 'Доска'
+    clients: 'Клиенты'
+    tools: 'Тулзы'
+  upper_menu:
+    profile: 'Профиль'
+    tasks: 'Мои задания'
+    settings: 'Настройки'
+    log_out: 'Выйти'
+  dashboard:
+    header: 'Пользовательская панель'
+    text: 'Нравится наш сервис? Оставьте отзыв ....'
+    details: 'Детали'
+    chart: 'Чарт'
+  instagram:
+    form:
+      location: 'местоположение'
+      hashtag: 'хештег'
+      submit: 'Найти'
+  twitter:
+    form:
+      name: 'Имя'
+      submit: 'Найти'
+  reviews:
+    text: 'Текст'
+    submit: 'Создать'
+  admin_panel:
+    header: 'Панель Администратора'
+  tools:
+    header: 'Существующие тулы'
+    form:
+      header: 'Добавить возможныйе тулы'
+      name: 'Имя'
+      description: 'Описание'
+      save: 'Сохранить'
+    wish_tools: 'Возможные тулы'
+    change: 'Изменить'
+  languages:
+    lang: "Язык"
+    ru: "Русский"
+    en: "Английский"
+  description:
+    instagram: "Здесь вы можете посмотреть контент по хештегу и локации которую выберете на карте"
+    twitter: "Здесь вы можете посмотреть контент по имени и локации которую выберете на карте"
+    tasks: "Здесь вы можете добавить задание для просмотра вашего медиа каждый день и посмоть его на своей доске"

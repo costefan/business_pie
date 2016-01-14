@@ -1,5 +1,8 @@
 class InstagramStatisticsController < ApplicationController
+  include InstagramStatisticsHelper
   before_action :check_tool
+  before_action :clear_session, only: [:information]
+
   def information
 
   end
@@ -10,10 +13,7 @@ class InstagramStatisticsController < ApplicationController
 
   def search
     if params[:hashtag] != ''
-      @insta = process_search(params[:hashtag], params[:location])
-=begin
-      current_user.requests.create!(text: params[:hashtag])
-=end
+      @insta = process_search params[:hashtag], params[:location]
       respond_to do |format|
         format.html {redirect_to instagram_url}
         format.js
@@ -32,29 +32,8 @@ class InstagramStatisticsController < ApplicationController
     end
   end
 
-  def process_search(hashtags, city)
-    hashtags = hashtags.split
-    connected_word = ''
-    hashtags.each do |hashtag|
-      connected_word += hashtag
-    end
-    hashtags << connected_word
-    sorted_media = []
-    hashtags.each do |hastag|
-      insta_media = Instagram.tag_recent_media(hastag, count: 33)
-
-      ll = Geocoder.search(city)[0].data['geometry']['location']
-      lat, lng = ll['lat'], ll['lng']
-
-      insta_media.each do |media|
-          unless media.location == nil
-            if Geocoder::Calculations.distance_between([lat, lng], [media.location.latitude, media.location.longitude]) < 25
-              sorted_media << media
-            end
-          end
-      end
-    end
-    sorted_media
+  def clear_session
+    session.delete('last_tag_id')
   end
 
 end

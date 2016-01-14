@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: {minimum: 6}
   has_many :reviews,foreign_key: 'user_id',dependent: :destroy
 
-  has_and_belongs_to_many :tools
   has_many :requests
+  has_and_belongs_to_many :tools
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
