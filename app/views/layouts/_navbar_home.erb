@@ -22,20 +22,14 @@
           <a href="#about" class="about"><%= t('home_page.navbar.home') %></a>
         </li>
         <li>
-          <% if signed_in? %>
-              <%= link_to t('home_page.navbar.dashboard'), user_path(current_user) %>
-              </li>
-              <li>
-              <%= link_to t('home_page.navbar.sign_out') ,signout_path,method: 'delete'%>
+          <% if user_signed_in? %>
+              <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
           <% else %>
-              <%= link_to t('home_page.navbar.sign_up') ,signup_path %>
+              <%= link_to t('home_page.navbar.sign_up') ,new_user_registration_path %>
               </li>
               <li>
               <%= link_to t('home_page.navbar.sign_in'), "#", class:'sign-in-btn', data: {toggle: "modal", backdrop: 'static', target: ".bs-example-modal-sm"}, style: "color: black;" %>
           <% end %>
-        </li>
-        <li>
-          <%= link_to t('home_page.navbar.reviews'), reviews_latest_path %>
         </li>
       </ul>
     </div>
@@ -51,7 +45,7 @@
               <h3 class="modal-title" id="myModalLabel">Please sign in</h3>
             </div>
             <div class="modal-body">
-            <%= form_for :sessions, url:sessions_path do |f| %>
+            <%= form_for(:user, :url => session_path(:user)) do |f| %>
                   <%= render 'layouts/flash' %>
                 <div class="form-group">
                   <%= f.label :email %>

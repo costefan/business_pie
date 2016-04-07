@@ -38,7 +38,14 @@
           </a>
         </div>
         <h2 class="brand-before">
-          <small>Welcome to</small>
+          <small>
+          <% if user_signed_in? %>
+              Welcome <%=  current_user.email %> to
+          <% else %>
+            Welcome to
+          <% end %>
+          
+          </small>
         </h2>
         <h1 class="brand-name">Business Casual</h1>
         <hr class="tagline-divider">
@@ -79,6 +86,6 @@
 </div>
 <!-- /.container -->
 
-<%= render 'layouts/footer_home' %>
+
 
 </body>
