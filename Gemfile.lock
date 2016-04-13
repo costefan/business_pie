@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/mongoid/mongoid.git
+  revision: 63ece9973709a837a1817824d202b367db3e3688
+  specs:
+    mongoid (5.0.0.beta)
+      activemodel (~> 4.0)
+      mongo (= 2.1.0.beta)
+      origin (~> 2.1)
+      tzinfo (>= 0.3.37)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -49,6 +59,8 @@ GEM
       sass (>= 3.3.4)
     bootstrap-will_paginate (0.0.10)
       will_paginate
+    bson (3.2.6)
+    bson_ext (1.5.1)
     buftok (0.2.0)
     builder (3.2.2)
     byebug (8.2.1)
@@ -68,6 +80,13 @@ GEM
     delayed_job_active_record (4.1.0)
       activerecord (>= 3.0, < 5)
       delayed_job (>= 3.0, < 5)
+    devise (3.5.6)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
     equalizer (0.0.10)
@@ -119,12 +138,15 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
+    mongo (2.1.0.beta)
+      bson (~> 3.0)
     multi_json (1.11.2)
     multipart-post (2.0.0)
     naught (1.1.0)
     nokogiri (1.6.7)
       mini_portile2 (~> 2.0.0.rc2)
-    pg (0.18.4)
+    origin (2.2.0)
+    orm_adapter (0.5.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -163,6 +185,8 @@ GEM
     rdoc (4.2.0)
       json (~> 1.4)
     redis (3.2.2)
+    responders (2.1.2)
+      railties (>= 4.2.0, < 5.1)
     sass (3.4.20)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -214,6 +238,8 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
+    warden (1.2.6)
+      rack (>= 1.0)
     web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -228,9 +254,11 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootstrap-sass
   bootstrap-will_paginate
+  bson_ext
   byebug
   daemons
   delayed_job_active_record
+  devise
   gchartrb
   geocoder
   haml
@@ -239,7 +267,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
-  pg
+  mongoid!
   rails (= 4.2.4)
   rails_12factor
   railties

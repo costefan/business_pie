@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body.user {
   background-size: 100%;
-  background: image-url('upfeathers.png');
+  background-color: #252525;
 }
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
@@ -11,6 +11,9 @@ input, textarea, select, .uneditable-input {
   margin-bottom: 15px;
 }
 
+h2 {
+  color: white;
+}
 
 input {
   height: auto !important;
