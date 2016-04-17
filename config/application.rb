@@ -38,5 +38,6 @@ module BusinessPie
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.sass.load_paths << Rails.root.join('vendor', 'assets', 'stylesheets')
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.assets.precompile += %w( custom.js )
   end
 end

@@ -4,7 +4,12 @@
   <title>BusinessPie</title>
   <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
+  <% if params[:bool] %>
+    <%= javascript_include_tag 'application', 'custom', 'data-turbolinks-track' => true %>
+  <% else %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <% end %>
   <%= csrf_meta_tags %>
   <script type="text/javascript"
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpLLrfm9YHS776bKpJ7e5stO2VselPFpU">

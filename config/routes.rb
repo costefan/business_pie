@@ -2,9 +2,12 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   devise_for :users
 
+  authenticated do
+    root :to => "static_pages#home", as: :authenticated
+  end
+  root :to => 'static_pages#landing'
 
-  root 'static_pages#home'
-
+  get 'home' => 'static_pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
