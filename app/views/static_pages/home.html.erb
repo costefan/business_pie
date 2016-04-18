@@ -40,10 +40,38 @@
         <hr class="visible-xs">
         <p>It helps you to know what people knew and do about your buisiness  </p>
         <p>Lots of tasks doing by your statistics manager and guys which is providing not cheap help</p>
-      </div>
-    </div>
   </div>
+  <div id="map" style="height: 440px; border: 1px solid #AAA;">
+    <script type="text/javascript">
+      var map = L.map( 'map', {
+          center: [20.0, 5.0],
+          minZoom: 2,
+          zoom: 10
+      });
+      L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://osm.org/copyright" title="OpenStreetMap" target="_blank">OpenStreetMap</a> contributors | Tiles Courtesy of <a href="http://www.mapquest.com/" title="MapQuest" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" width="16" height="16">',
+          subdomains: ['otile1','otile2','otile3','otile4']
+      }).addTo( map );
+      map.on('click', function(e) {
+        var radius = 500;
+          L.circle(e.latlng, radius).addTo(map);
+          $('#latlng').val(e.latlng);
+          $('#radius').val(radius);
+      });
 
+    </script>
+  </div>
+  <%= form_for :users do |f| %>
+        <div class="form-group">
+          <%= f.submit t('home_page.submit') ,class: "btn btn-blue btn-effect" %>
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="hidden" name="user[email]" id="latlng">
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="hidden" name="user[email]" id="radius">
+        </div>  
+<% end %>
   <div class="row">
     <div class="box">
       <div class="col-lg-12">
@@ -58,6 +86,7 @@
       </div>
     </div>
   </div>
+
 
 </div>
 </div>

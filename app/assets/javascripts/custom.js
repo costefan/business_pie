@@ -9,7 +9,6 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//= require landing/bootstrap.min
 //= require landing/jquery-1.11.1.min
 //= require landing/jquery.ba-cond.min
 //= require landing/jquery.easing.min
