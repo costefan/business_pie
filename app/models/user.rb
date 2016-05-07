@@ -30,6 +30,8 @@ class User
   field :services, type: Hash
   embeds_many :reviews
 
+  field :reports_ids, type: Array
+
   ## Confirmable
   # field :confirmation_token,   type: String
   # field :confirmed_at,         type: Time
