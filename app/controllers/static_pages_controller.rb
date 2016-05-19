@@ -1,6 +1,10 @@
 class StaticPagesController < ApplicationController
-  skip_before_action :check_user
+  skip_before_action :check_user, only: :landing
+
   def home
+    # @services = current_user.services
+    # @name = current_user.name
+    # @last_sign_in = current_user.last_sign_in_at
   end
 
   def landing
@@ -12,4 +16,5 @@ class StaticPagesController < ApplicationController
 
   def help
   end
+  
 end

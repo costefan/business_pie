@@ -9,5 +9,5 @@
 # User.delete_all
 # RequestType.delete_all
 # user = User.create! :name => 'First User', :email => 'user@example.com', :password => 'qwerty123', :password_confirmation => 'qwerty123'
-# user2 = User.create! :name => 'Admin', :email => 'admin@example.com', :password => 'qwerty123', :password_confirmation => 'qwerty123' ,:admin => true
-request_type1 = RequestType.create! :name => 'Restourant', :keywords => ["cafe", "restourant"]	
+user2 = User.create! :name => 'Admin', :email => 'admin@admin.com', :password => 'qwerty123C', :password_confirmation => 'qwerty123C' ,:admin => true
+#request_type1 = RequestType.create! :name => 'Restourants', :keyword => "cafe,restourant", :positive_verb => "cafe,restourant", :negative_verb => "cafe,restourant"

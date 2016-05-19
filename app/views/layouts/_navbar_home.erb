@@ -27,12 +27,12 @@
                           </li>
                           <li class="divider"></li>
                           <li>
-                              <a href="#"><i class="fa fa-fw fa-power-off"></i> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a>
+                              <a href="#"><i class="fa fa-fw fa-power-off"></i> <%= link_to "Sign out", destroy_user_session_url, :method => :delete %></a>
                           </li>
                       </ul>
                   </li>
                 <% else %>
-                        <li><%= link_to t('home_page.navbar.sign_up') ,new_user_registration_path %></li>
+                        <li><%= link_to t('home_page.navbar.sign_up') ,new_user_registration_url %></li>
                         <li><%= link_to t('home_page.navbar.sign_in'), "#", class:'sign-in-btn', data: {toggle: "modal", backdrop: 'static', target: ".bs-example-modal-sm"} %></li>
                 <% end %>
               </ul>
@@ -40,7 +40,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="#"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <%= link_to "Dashboard" , root_path %>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-bar-chart-o"></i> Order service</a>
@@ -50,11 +50,16 @@
 Search history</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-edit"></i> Search by location</a>
+                        <%= link_to "Search by location" ,new_search_request_path %>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-desktop"></i> Search on area</a>
-                    </li>                  
+                    </li>
+                    <% if current_user.admin? %>
+                    <li>
+                        <%= link_to "Add request type" ,new_request_type_path %>
+                    </li>
+                    <% end %>                  
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

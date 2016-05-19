@@ -112,6 +112,9 @@ GEM
       domain_name (~> 0.5)
     http-form_data (1.0.1)
     http_parser.rb (0.6.0)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     instagram (1.1.6)
       faraday (>= 0.7, < 0.10)
@@ -143,6 +146,7 @@ GEM
     mongo (2.1.0.beta)
       bson (~> 3.0)
     multi_json (1.11.2)
+    multi_xml (0.5.5)
     multipart-post (2.0.0)
     naught (1.1.0)
     nokogiri (1.6.7.2)
@@ -269,6 +273,7 @@ DEPENDENCIES
   gchartrb
   geocoder
   haml
+  httparty
   i18n
   instagram
   jbuilder (~> 2.0)

@@ -8,6 +8,7 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = false
@@ -38,4 +39,16 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  ##Action mailer
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'gmail.com',
+    user_name:            'maksbulgar@gmail.com',
+    password:             'NEMEZIDA123c',
+    authentication:       'plain',
+    enable_starttls_auto: true  }
 end

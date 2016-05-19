@@ -1,4 +1,5 @@
 class User
+
   include Mongoid::Document
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -27,10 +28,23 @@ class User
   field :name,               type: String
   field :admin,              type: Boolean
   # Count of services that user bought
-  field :services, type: Hash
+  field :services, type: Hash, default: { "Check request" => 0, "Search request" => 0 }
+
   embeds_many :reviews
 
   field :reports_ids, type: Array
+  def after_database_authentication
+    ago = Time.now - 5.minutes
+    #self.update_attribute(:name, "Adminaa")
+
+  
+    #max = TwitterApi.trending_tweets.to_h
+
+    if ago > self.last_sign_in_at
+      UserMailer.welcome_email(self.email,self.last_sign_in_at).deliver_now
+    end
+    #kovalenlosha@gmail.com
+  end
 
   ## Confirmable
   # field :confirmation_token,   type: String
@@ -44,3 +58,6 @@ class User
   # field :locked_at,       type: Time
  # адміністратор, для введення послуги вікно, як вводити послуги, третій рівень для 3-тьої лаби
 end
+
+
+#1,9,2
