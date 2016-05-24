@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  #before_action :check_user
+  before_action :check_user
   #include SessionsHelper
   #before_action :set_locale
 
@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
       cookies.permanent[:educator_locale] = l
     end
     I18n.locale = l
+  end
+  def after_sign_in_path
+    
   end
 
   private

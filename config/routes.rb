@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   root :to => 'static_pages#landing'
 
   get 'home' => 'static_pages#home'
+  resources :request_types, only: [:new, :create]
+  resources :search_requests, only: [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

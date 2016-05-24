@@ -16,6 +16,9 @@
   </script>
 </head>
 <body>
+  <% if params[:action] != "landing" %>
+    <%= render 'layouts/navbar_home' %>
+  <% end %>
 	<div id="wrapper">
 	    <%= yield %>
 	</div>

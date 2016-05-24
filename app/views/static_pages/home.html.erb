@@ -1,4 +1,4 @@
-<%= render 'layouts/navbar_home' %>
+
 <div id="page-wrapper">
 <div class="container-fluid">
 
@@ -6,13 +6,8 @@
     <div class="box">
       <div class="col-lg-12 text-center">
           <!-- Controls -->
-          <a class="left carousel-control" href="http://ironsummitmedia.github.io/startbootstrap-business-casual/#carousel-example-generic" data-slide="prev">
-            <span class="icon-prev"></span>
-          </a>
-          <a class="right carousel-control" href="http://ironsummitmedia.github.io/startbootstrap-business-casual/#carousel-example-generic" data-slide="next">
-            <span class="icon-next"></span>
-          </a>
-        </div>
+
+        
         <h2 class="brand-before">
           <small>
           <% if user_signed_in? %>
@@ -22,8 +17,9 @@
           <% end %>
           
           </small>
+          <%= params.inspect %>
         </h2>
-        <h1 class="brand-name">Business Casual</h1>
+        <h1 class="brand-name">DAISocial</h1>
         <hr class="tagline-divider">
       </div>
     </div>
@@ -40,39 +36,11 @@
         <hr class="visible-xs">
         <p>It helps you to know what people knew and do about your buisiness  </p>
         <p>Lots of tasks doing by your statistics manager and guys which is providing not cheap help</p>
+      </div>
+    </div>
   </div>
-  <div id="map" style="height: 440px; border: 1px solid #AAA;">
-    <script type="text/javascript">
-      var map = L.map( 'map', {
-          center: [20.0, 5.0],
-          minZoom: 2,
-          zoom: 10
-      });
-      L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="http://osm.org/copyright" title="OpenStreetMap" target="_blank">OpenStreetMap</a> contributors | Tiles Courtesy of <a href="http://www.mapquest.com/" title="MapQuest" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" width="16" height="16">',
-          subdomains: ['otile1','otile2','otile3','otile4']
-      }).addTo( map );
-      map.on('click', function(e) {
-        var radius = 500;
-          L.circle(e.latlng, radius).addTo(map);
-          $('#latlng').val(e.latlng);
-          $('#radius').val(radius);
-      });
 
-    </script>
-  </div>
-  <%= form_for :users do |f| %>
-        <div class="form-group">
-          <%= f.submit t('home_page.submit') ,class: "btn btn-blue btn-effect" %>
-        </div>
-        <div class="form-group">
-          <input class="form-control" type="hidden" name="user[email]" id="latlng">
-        </div>
-        <div class="form-group">
-          <input class="form-control" type="hidden" name="user[email]" id="radius">
-        </div>  
-<% end %>
-  <div class="row">
+  <div id="about" class="row">
     <div class="box">
       <div class="col-lg-12">
         <hr>
@@ -80,6 +48,7 @@
           <strong>to showcase your content</strong>
         </h2>
         <hr>
+        <hr class="visible-xs">
         <p> Quirky , who lived a rich life - gives rise honest. Culture brings the more fruit than before made ​​public . For your life to be active.</p>
         <p> Not only that suffered their careers to be an entrepreneur . Suitable Place head down to invest it.Understand that preach good on his .</p>
         <p> Actors , who died in prison at the risk to give. Make of them learned their tasks and reward . </p>
@@ -88,6 +57,7 @@
   </div>
 
 
-</div>
+
+
 </div>
 </div>

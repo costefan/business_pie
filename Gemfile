@@ -37,6 +37,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'haml'
 
+gem 'httparty'
+
 #gem 'leaflet-rails'
 
 gem 'geocoder'
