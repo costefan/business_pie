@@ -40,7 +40,7 @@ class User
   
     #max = TwitterApi.trending_tweets.to_h
 
-    if ago > self.last_sign_in_at
+    if !self.last_sign_in_at.nil? and ago > self.last_sign_in_at
       UserMailer.welcome_email(self.email,self.last_sign_in_at).deliver_now
     end
     #kovalenlosha@gmail.com
