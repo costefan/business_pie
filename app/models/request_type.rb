@@ -18,8 +18,11 @@ class RequestType
 
   protected
   def mongoize
-  	self.keywords = self.keyword.split(',') unless self.keyword.nil?
-  	self.positive_verbs = self.positive_verb.split(',')
-  	self.negative_verbs = self.negative_verb.split(',')
+  	self.keywords = self.keyword.split(/[ ,.]+/) unless self.keyword.nil?
+  	self.positive_verbs = self.positive_verb.split(/[ ,.]+/)
+  	self.negative_verbs = self.negative_verb.split(/[ ,.]+/)
+    self.unset(:keyword)
+    self.unset(:positive_verb)
+    self.unset(:negative_verb)
   end
 end
