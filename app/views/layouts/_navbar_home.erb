@@ -50,10 +50,10 @@
 Search history</a>
                     </li>
                     <li>
-                        <%= link_to "Search by location" ,new_search_request_path %>
+                        <%= link_to "Search on area" , new_search_request_path %>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-desktop"></i> Search on area</a>
+                        <%= link_to "Search by location" , new_check_request_path %>
                     </li>
                     <% if current_user.admin? %>
                     <li>

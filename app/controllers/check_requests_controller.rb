@@ -4,7 +4,11 @@ class CheckRequestsController < ApplicationController
 	end
 
 	def create
-		#HTTParty.post("http://127.0.0.1:8080/users/#{current_user.id}/search_request", params)
+		@result = HTTParty.post("http://192.168.131.253:8080/users/#{current_user.id}/check_request", 
+		{ 
+		    :body => params[:check_request].to_json,
+		    :headers => { 'Content-Type' => 'application/json', 'Accept' => 'application/json'}
+		})
 		redirect_to root_path
 	end
 end
