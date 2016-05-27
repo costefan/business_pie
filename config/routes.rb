@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     root :to => "static_pages#home", as: :authenticated
   end
   root :to => 'static_pages#landing'
-
+  get 'help' => 'static_pages#help', as: :pdf
   get 'home' => 'static_pages#home'
   resources :request_types, only: [:new, :create]
   resources :search_requests, only: [:new, :create]

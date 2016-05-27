@@ -1,4 +1,10 @@
+<!--   <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alvarotrigo/fullPage.js/master/jquery.fullPage.css" />
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/  alvarotrigo/fullPage.js/master/examples/examples.css" /> -->
 <style>
+  #fullpage {
+    background-color: white;
+  }
 
   /* Style for our header texts
   * --------------------------------------- */
@@ -107,20 +113,29 @@
           <h1>Result</h1>
           <hr>
           <p>
-            After days during which we analyze the area, you will get the result of the suitability of a place because of the number of competitors and popularity. You recieve notification on mail, and can find it at the <b>Search history</b>
+            After days during which we analyze the area, you will get the result of the suitability of a place because of the number of competitors and popularity. You recieve notification on mail, and can find it at the <b>Search history</b> and download report.
           </p>
           <hr>
         </div>
       </div>
     </div>
-
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 <script type="text/javascript" src="https://cdn.rawgit.com/alvarotrigo/fullPage.js/master/jquery.fullPage.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/alvarotrigo/fullPage.js/master/vendors/scrolloverflow.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     $('#fullpage').fullpage({
-      anchors: ['firstPage', 'secondPage', '3rdPage'],
+      anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage'],
       sectionsColor: ['#FFFFFF', '#FFFFFF', '#FFFFFF'],
-      css3: true
+      scrollOverflow: true,
+      scrollOverflowOptions: {
+        scrollbars: true,
+            mouseWheel: true,
+            hideScrollbars: false,
+            fadeScrollbars: false,
+            disableMouse: true
+      }
     });
   });
   $(document).ready(function(){

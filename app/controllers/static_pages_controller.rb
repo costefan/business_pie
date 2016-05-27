@@ -15,6 +15,8 @@ class StaticPagesController < ApplicationController
   end
 
   def help
+    pdf_filename = File.join(Rails.root, "12.pdf")
+    send_file(pdf_filename, :filename => "12.pdf", :type => "application/pdf")
   end
   
 end

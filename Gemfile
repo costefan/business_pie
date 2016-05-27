@@ -52,6 +52,8 @@ gem 'instagram'
 gem 'twitter'
 
 gem 'gchartrb'
+#PDF reader
+gem 'prawn'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.9'
