@@ -1,61 +1,132 @@
+<style>
 
-<div id="page-wrapper">
-<div class="container-fluid">
+  /* Style for our header texts
+  * --------------------------------------- */
+  h1{
+    font-size: 5em;
+    font-family: arial,helvetica;
+    margin:0;
+    padding:0;
+  }
+  h2{
+    margin:0;
+    padding:0;
+  }
+  h3 {
+    margin-top: 30%;
+/*    left:50%;
+    transform: translateX(-50%);
+    position: absolute;
+    text-align:center;*/
+  }
+  .intro p{
+  }
 
-  <div class="row">
-    <div class="box">
-      <div class="col-lg-12 text-center">
-          <!-- Controls -->
+  img {
+    width: 90%;
+  }
+  /* Centered texts in each section
+  * --------------------------------------- */
+  .section{
+    text-align:center;
+  }
+  /* Fixed header and footer.
+  * --------------------------------------- */
+  #header, #footer{
+    position:fixed;
+    height: 50px;
+    display:block;
+    width: 100%;
+    background: #333;
+    z-index:9;
+    text-align:center;
+    color: #f2f2f2;
+    padding: 20px 0 0 0;
+  }
+  #header{
+    top:0px;
+  }
+  #footer{
+    bottom:0px;
+  }
 
-        
-        <h2 class="brand-before">
-          <small>
-          <% if user_signed_in? %>
-              Welcome <%=  current_user.email %> to
-          <% else %>
-            Welcome to
-          <% end %>
-          </small>
-        </h2>
-        <h1 class="brand-name">DAISocial</h1>
-        <hr class="tagline-divider">
+  }
+</style>
+
+
+
+
+    <div id="fullpage">
+      <div class="section " id="section0">
+        <div class="intro">
+          <h2>
+            <small>
+            <% if user_signed_in? %>
+                Welcome <%=  current_user.name %> to
+            <% else %>
+              Welcome to
+            <% end %>
+            </small>
+          </h2>
+          <h1 class="brand-name">DAISocial</h1>
+            <div id="about" class="row">
+            <div class="box">
+              <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center">We built a service to help you
+                  <strong>help you</strong>
+                </h2>
+                <hr>
+                <hr class="visible-xs">
+                <p>It helps you to know what people knew and do about your buisiness  </p>
+                <p>Lots of tasks doing by your statistics manager and guys which is providing not cheap help</p>
+              </div>
+            </div>
+          </div>
+
+          <h3>Scroll down</h3>
+          <p><b>.</b></p>
+          <p><b>.</b></p>          
+          <p><b>.</b></p>
+        </div>
+      </div>
+      <div class="section" id="section1">
+          <div class="intro">
+            <h1>How to do it</h1>
+            <hr>
+            <p>
+              <p>Click on the sidebar <b>Search on area</b> or <b>Search by location </b></p>
+              <p>Ther you will need to select place what you want to check and select what type of institution you wnat open.</p>
+              <hr>
+              <%= image_tag "service.png" %>
+            </p>
+          </div>
+      </div>
+      <div class="section" id="section2">
+        <div class="intro">
+          <h1>Result</h1>
+          <hr>
+          <p>
+            After days during which we analyze the area, you will get the result of the suitability of a place because of the number of competitors and popularity. You recieve notification on mail, and can find it at the <b>Search history</b>
+          </p>
+          <hr>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div id="about" class="row">
-    <div class="box">
-      <div class="col-lg-12">
-        <hr>
-        <h2 class="intro-text text-center">We built a service to help you
-          <strong>help you</strong>
-        </h2>
-        <hr>
-        <hr class="visible-xs">
-        <p>It helps you to know what people knew and do about your buisiness  </p>
-        <p>Lots of tasks doing by your statistics manager and guys which is providing not cheap help</p>
-      </div>
-    </div>
-  </div>
+<script type="text/javascript" src="https://cdn.rawgit.com/alvarotrigo/fullPage.js/master/jquery.fullPage.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#fullpage').fullpage({
+      anchors: ['firstPage', 'secondPage', '3rdPage'],
+      sectionsColor: ['#FFFFFF', '#FFFFFF', '#FFFFFF'],
+      css3: true
+    });
+  });
+  $(document).ready(function(){
+    $("#demosMenu").change(function(){
+      window.location.href = $(this).find("option:selected").attr("id") + '.html';
+    });
+  });
+</script>
 
-  <div id="about" class="row">
-    <div class="box">
-      <div class="col-lg-12">
-        <hr>
-        <h2 class="intro-text text-center">Beautiful boxes
-          <strong>to showcase your content</strong>
-        </h2>
-        <hr>
-        <hr class="visible-xs">
-        <p> Quirky , who lived a rich life - gives rise honest. Culture brings the more fruit than before made ​​public . For your life to be active.</p>
-        <p> Not only that suffered their careers to be an entrepreneur . Suitable Place head down to invest it.Understand that preach good on his .</p>
-        <p> Actors , who died in prison at the risk to give. Make of them learned their tasks and reward . </p>
-      </div>
-    </div>
-  </div>
-
-
-
-
-</div>
-</div>
