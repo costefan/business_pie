@@ -16,9 +16,14 @@
   </script>
 </head>
 <body>
-  <% if params[:action] != "landing" %>
+
+  <% if (params[:action] == "landing") %>
+  <% elsif (params[:controller] == "devise/registrations") %>
+  <% else %>
     <%= render 'layouts/navbar_home' %>
   <% end %>
+
+
 	<div id="wrapper">
 	    <%= yield %>
 	</div>

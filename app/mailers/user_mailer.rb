@@ -7,4 +7,8 @@ class UserMailer < ApplicationMailer
     @url  = 'http://example.com/login'
     mail(to: @user, subject: 'Welcome to My Awesome Site')
   end
+
+  def give_service_notification
+  	
+  end
 end

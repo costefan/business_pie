@@ -39,5 +39,9 @@ module BusinessPie
     config.sass.load_paths << Rails.root.join('vendor', 'assets', 'stylesheets')
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.assets.precompile += %w( custom.js )
+
+    config.to_prepare do
+      Devise::RegistrationsController.skip_before_filter :check_user
+    end
   end
 end

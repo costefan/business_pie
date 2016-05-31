@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  skip_before_action :check_user, only: :landing
+  skip_before_filter :check_user, only: :landing
 
   def home
     # @services = current_user.services

@@ -31,7 +31,7 @@
         }).addTo( map );
     var clickCircle;
     function onMapClick(e) {
-      var radius = 50;
+      var radius = 10;
       if (clickCircle != undefined) {
         map.removeLayer(clickCircle);
       };
@@ -45,18 +45,18 @@
     </div>
     <p> </p>
     <%= form_for @check_request do |f| %>
-            <%= f.collection_select(:request_type, RequestType.all, :id, :name,
-                     {:class => "btn btn-default dropdown-toggle"}) %>
+        <%= f.collection_select(:request_type, RequestType.all, :id, :name,
+                 {:class => "btn btn-default dropdown-toggle"}) %>
 
-          <div class="form-group">
-            <input class="form-control" type="hidden" name="search_request[latlng][]" id="lat">
-            <input class="form-control" type="hidden" name="search_request[latlng][]" id="lng">
+      <div class="form-group">
+        <input class="form-control" type="hidden" name="search_request[latlng][]" id="lat">
+        <input class="form-control" type="hidden" name="search_request[latlng][]" id="lng">
+      </div>
+      <div class="form-group">
+          <div class="col-md-4">
+              <%= f.submit "Create", class: "btn btn-primary" %>
           </div>
-          <div class="form-group">
-              <div class="col-md-4">
-                  <%= f.submit "Create", class: "btn btn-primary" %>
-              </div>
-          </div>  
-  <% end %>
+      </div>  
+    <% end %>
   </div>
 </div>

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :request_types, only: [:new, :create]
   resources :search_requests, only: [:new, :create]
   resources :check_requests, only: [:new, :create]
-
+  resources :promocodes, only: [:new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
