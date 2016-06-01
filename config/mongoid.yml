@@ -9,7 +9,7 @@ development:
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - ds025762.mlab.com:25762/daisocial
+        - ds019893.mlab.com:19893/daisocial
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:
@@ -22,7 +22,7 @@ development:
         #   mode: :secondary_preferred
 
         # The name of the user for authentication.
-        user: 'dais'
+        user: 'dais_user'
 
         # The password of the user for authentication.
         password: '321321'

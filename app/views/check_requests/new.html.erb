@@ -38,7 +38,6 @@
       clickCircle = L.circle(e.latlng,radius).addTo(map);
       $('#lat').val(e.latlng.lat);
       $('#lng').val(e.latlng.lng);
-      $('#radius').val(radius);
     }
     map.on('click', onMapClick);
       </script>
@@ -49,8 +48,8 @@
                  {:class => "btn btn-default dropdown-toggle"}) %>
 
       <div class="form-group">
-        <input class="form-control" type="hidden" name="search_request[latlng][]" id="lat">
-        <input class="form-control" type="hidden" name="search_request[latlng][]" id="lng">
+        <input class="form-control" type="hidden" name="check_request[center][]" id="lat">
+        <input class="form-control" type="hidden" name="check_request[center][]" id="lng">
       </div>
       <div class="form-group">
           <div class="col-md-4">
