@@ -1,10 +1,11 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
-# Pick the frameworks you want:
-require "active_model/railtie"
-require "active_job/railtie"
-require "active_record/railtie"
+require 'rails'
+# Unused frameworks
+# require "active_model/railtie"
+# require "active_job/railtie"
+# require "active_record/railtie"
+
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
@@ -31,12 +32,17 @@ module BusinessPie
 
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+    #config.active_record.raise_in_transactional_callbacks = true
 
     require Rails.root.join("lib/custom_public_exceptions")
     config.exceptions_app = CustomPublicExceptions.new(Rails.public_path)
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.sass.load_paths << Rails.root.join('vendor', 'assets', 'stylesheets')
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.assets.precompile += %w( custom.js )
+
+    config.to_prepare do
+      Devise::RegistrationsController.skip_before_filter :check_user
+    end
   end
 end

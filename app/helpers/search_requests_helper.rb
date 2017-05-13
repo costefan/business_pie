@@ -1,0 +1,2 @@
+module SearchRequestsHelper
+end

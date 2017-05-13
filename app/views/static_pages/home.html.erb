@@ -1,84 +1,158 @@
-<body class = "home-page">
-<div class="brand">Business Pie</div>
-<div class="address-bar">Politechnichna st | Kiev</div>
+<!--   <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alvarotrigo/fullPage.js/master/jquery.fullPage.css" />
 
-<%= render 'layouts/navbar_home' %>
-<div class="container">
+  <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/  alvarotrigo/fullPage.js/master/examples/examples.css" /> -->
+<style>
+  #fullpage {
+    background-color: white;
+  }
 
-  <div class="row">
-    <div class="box">
-      <div class="col-lg-12 text-center">
-        <div id="carousel-example-generic" class="carousel slide">
-          <!-- Indicators -->
-          <ol class="carousel-indicators hidden-xs">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-          </ol>
+  /* Style for our header texts
+  * --------------------------------------- */
+  h1{
+    font-size: 5em;
+    font-family: arial,helvetica;
+    margin:0;
+    padding:0;
+  }
+  h2{
+    margin:0;
+    padding:0;
+  }
+  h3 {
+    margin-top: 30%;
+/*    left:50%;
+    transform: translateX(-50%);
+    position: absolute;
+    text-align:center;*/
+  }
+  .intro {
+    padding-top: 50px;
+  }
+  .intro p{
+  }
 
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <%= link_to image_tag("slide-1.jpg"),"#" %>
-            </div>
-            <div class="item">
-              <%= link_to image_tag("slide-2.jpg"),"#" %>
-            </div>
-            <div class="item">
-              <%= link_to image_tag("slide-3.jpg"),"#" %>
+  img {
+    width: 90%;
+  }
+  /* Centered texts in each section
+  * --------------------------------------- */
+  .section{
+    text-align:center;
+  }
+  /* Fixed header and footer.
+  * --------------------------------------- */
+  #header, #footer{
+    position:fixed;
+    height: 50px;
+    display:block;
+    width: 100%;
+    background: #333;
+    z-index:9;
+    text-align:center;
+    color: #f2f2f2;
+    padding: 20px 0 0 0;
+  }
+  #header{
+    top:0px;
+  }
+  #footer{
+    bottom:0px;
+  }
+
+  }
+</style>
+
+
+
+
+    <div id="fullpage">
+      <div class="section " id="section0">
+        <div class="intro">
+          <h2>
+            <small>
+            <% if user_signed_in? %>
+                Welcome <%=  current_user.name %> to
+            <% else %>
+              Welcome to
+            <% end %>
+            </small>
+          </h2>
+          <h1 class="brand-name">DAISocial</h1>
+            <div id="about" class="row">
+            <div class="box">
+              <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center">We built a service to help you
+                  <strong>help you</strong>
+                </h2>
+                <hr>
+                <hr class="visible-xs">
+                <p>It helps you to know what people knew and do about your buisiness  </p>
+                <p>Lots of tasks doing by your statistics manager and guys which is providing not cheap help</p>
+              </div>
             </div>
           </div>
-
-          <!-- Controls -->
-          <a class="left carousel-control" href="http://ironsummitmedia.github.io/startbootstrap-business-casual/#carousel-example-generic" data-slide="prev">
-            <span class="icon-prev"></span>
-          </a>
-          <a class="right carousel-control" href="http://ironsummitmedia.github.io/startbootstrap-business-casual/#carousel-example-generic" data-slide="next">
-            <span class="icon-next"></span>
-          </a>
+          <%= current_user.services.inspect %>
+          <%= params.inspect %>
+          <h3>Scroll down</h3>
+          <p><b>.</b></p>
+          <p><b>.</b></p>          
+          <p><b>.</b></p>
         </div>
-        <h2 class="brand-before">
-          <small>Welcome to</small>
-        </h2>
-        <h1 class="brand-name">Business Casual</h1>
-        <hr class="tagline-divider">
+      </div>
+      <div class="section" id="section1">
+          <div class="intro">
+            <h1>How to do it</h1>
+            <hr>
+            <p>
+              <p>Click on the sidebar <b>Search on area</b> or <b>Search by location </b></p>
+              <p>Ther you will need to select place what you want to check and select what type of institution you wnat open.</p>
+              <hr>
+              <%= image_tag "service.png" %>
+            </p>
+          </div>
+      </div>
+      <div class="section" id="section2">
+        <div class="intro">
+          <h1>Result</h1>
+          <hr>
+          <p>
+            After days during which we analyze the area, you will get the result of the suitability of a place because of the number of competitors and popularity. You recieve notification on mail, and can find it at the <b>Search history</b> and download report.
+          </p>
+          <hr>
+        </div>
       </div>
     </div>
-  </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/alvarotrigo/fullPage.js/master/jquery.fullPage.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/alvarotrigo/fullPage.js/master/vendors/scrolloverflow.js"></script>
+<script type="text/javascript">
 
-  <div id="about" class="row">
-    <div class="box">
-      <div class="col-lg-12">
-        <hr>
-        <h2 class="intro-text text-center">We built a service to help you
-          <strong>help you</strong>
-        </h2>
-        <hr>
-        <hr class="visible-xs">
-        <p>It helps you to know what people knew and do about your buisiness  </p>
-        <p>Lots of tasks doing by your statistics manager and guys which is providing not cheap help</p>
-      </div>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="box">
-      <div class="col-lg-12">
-        <hr>
-        <h2 class="intro-text text-center">Beautiful boxes
-          <strong>to showcase your content</strong>
-        </h2>
-        <hr>
-        <p> Quirky , who lived a rich life - gives rise honest. Culture brings the more fruit than before made ​​public . For your life to be active.</p>
-        <p> Not only that suffered their careers to be an entrepreneur . Suitable Place head down to invest it.Understand that preach good on his .</p>
-        <p> Actors , who died in prison at the risk to give. Make of them learned their tasks and reward . </p>
-      </div>
-    </div>
-  </div>
+  // $(document).ready(function(){
+  // //   // $( window ).resize(function() {
+  // //     if ($( window ).height() > 500) {
+  //       $('#fullpage').fullpage({
+  //         anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage'],
+  //         sectionsColor: ['#FFFFFF', '#FFFFFF', '#FFFFFF'],
+  //         scrollOverflow: true,
+  //         scrollOverflowOptions: {
+  //           scrollbars: true,
+  //               mouseWheel: true,
+  //               hideScrollbars: false,
+  //               fadeScrollbars: false,
+  //               disableMouse: true
+  //         }
+  //       });
+  // //     }
+  // //   // });
+  // });
 
-</div>
-<!-- /.container -->
+  // $(document).ready(function(){
+  //   $("#demosMenu").change(function(){
+  //     window.location.href = $(this).find("option:selected").attr("id") + '.html';
+  //   });
+  // });
+</script>
 
-<%= render 'layouts/footer_home' %>
-
-</body>

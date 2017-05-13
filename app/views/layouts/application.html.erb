@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BusinessPie</title>
+  <title>DAISocial</title>
   <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
+  <% if params[:action] == "landing" %>
+    <%= javascript_include_tag 'application', 'custom', 'data-turbolinks-track' => true %>
+  <% else %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <% end %>
   <%= csrf_meta_tags %>
-  <script type="text/javascript"
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpLLrfm9YHS776bKpJ7e5stO2VselPFpU">
-  </script>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.3.1/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.3.1/leaflet.js"></script>
+  <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+  <script src="http://matchingnotes.com/javascripts/leaflet-google.js"></script>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.3.1/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.3.1/leaflet.js"></script>
+  <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+  <script src="http://matchingnotes.com/javascripts/leaflet-google.js"></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7YO2PLmJlJ5hkcmwrbVglK-nzVwzGJ9w&callback=initMap"
+          async defer></script> -->
 </head>
 <body>
-    <%= yield %>
+
+  <% if (params[:action] == "landing") %>
+  <% elsif (params[:controller] == "devise/registrations") %>
+  <% else %>
+    <%= render 'layouts/navbar_home' %>
+  <% end %>
+
+
+	<div id="wrapper">
+	    <%= yield %>
+	</div>
 </body>
 </html>

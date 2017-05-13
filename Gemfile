@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
-ruby '2.1.4'
+
+ruby '2.4.0'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
+gem 'rails'
 # Use postgresql as the database for Active Record
-gem 'pg'
+# gem 'pg'
 # For Heroku
 gem 'rails_12factor',group: :production
 # Use SCSS for stylesheets
@@ -15,6 +17,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'railties'
 
 gem 'jquery-turbolinks'
+
+# Add devise + mongoid
+gem 'mongoid'
+gem 'bson_ext'
+
+gem 'devise'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -30,6 +38,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'haml'
 
+gem 'httparty'
+
+gem 'leaflet-rails'
+
 gem 'geocoder'
 
 gem 'bootstrap-sass'
@@ -41,9 +53,13 @@ gem 'instagram'
 gem 'twitter'
 
 gem 'gchartrb'
+# PDF reader
+gem 'prawn'
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
+#if winda
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 # Use Unicorn as the app server
 # gem 'unicorn'

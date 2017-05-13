@@ -17,5 +17,7 @@
 //= require turbolinks
 //= require spin.min
 //= require ladda.min
-//= require_tree .
+//= require leaflet
+//= require map
+
 

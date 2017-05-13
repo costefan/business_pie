@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = current_user.reviews.paginate(page: params[:page],per_page: 2)
+    @reviews = Review.all
   end
 
   def feed
